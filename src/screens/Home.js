@@ -10,6 +10,7 @@ import {
   getDocumentary,
 } from '../services/services';
 import List from '../components/List';
+import Error from '../components/Error';
 
 const dimentions = Dimensions.get('screen');
 
@@ -61,13 +62,14 @@ const Home = () => {
           setError(false);
         },
       )
-      .catch(error => setError(error))
+      .catch(() => setError(true))
       .finally(() => setLoaded(true));
   }, []);
 
   return (
     <>
       {!loaded && <ActivityIndicator size="large" color="#808080" />}
+      {error && <Error />}
       {loaded && (
         <ScrollView>
           {movieImages && (

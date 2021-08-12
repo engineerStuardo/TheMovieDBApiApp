@@ -37,7 +37,7 @@ const Card = ({item}) => {
   );
 };
 
-Card.propTypes = {
+Card.proptypes = {
   item: PropTypes.object,
 };
 
