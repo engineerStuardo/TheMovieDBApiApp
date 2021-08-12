@@ -25,7 +25,7 @@ const List = ({title, content}) => {
 
 List.propTypes = {
   title: PropTypes.string,
-  content: PropTypes.object,
+  content: PropTypes.any,
 };
 
 export default List;
