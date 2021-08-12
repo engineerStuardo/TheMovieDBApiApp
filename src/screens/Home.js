@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, Dimensions, FlatList, ScrollView} from 'react-native';
+import {View, Dimensions, ScrollView, ActivityIndicator} from 'react-native';
 import {SliderBox} from 'react-native-image-slider-box';
 
 import {
@@ -20,6 +20,7 @@ const Home = () => {
   const [familyMovies, setFamilyMovies] = useState();
   const [documentary, setDocumentary] = useState();
   const [error, setError] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   const getData = () => {
     return Promise.all([
@@ -60,53 +61,57 @@ const Home = () => {
           setError(false);
         },
       )
-      .catch(error => setError(error));
+      .catch(error => setError(error))
+      .finally(() => setLoaded(true));
   }, []);
 
   return (
     <>
-      <ScrollView>
-        {movieImages && (
-          <View
-            style={{
-              flex: 1,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <SliderBox
-              images={movieImages}
-              autoplay={true}
-              circleLoop={true}
-              sliderBoxHeight={dimentions.height / 1.5}
-              dotStyle={{height: 0}}
-            />
-          </View>
-        )}
-        {popularMovies && (
-          <View
-            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <List title="Popular Movies" content={popularMovies} />
-          </View>
-        )}
-        {popularTv && (
-          <View
-            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <List title="Popular TV Shows" content={popularTv} />
-          </View>
-        )}
-        {familyMovies && (
-          <View
-            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <List title="Family Movies" content={familyMovies} />
-          </View>
-        )}
-        {documentary && (
-          <View
-            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <List title="Documentary" content={documentary} />
-          </View>
-        )}
-      </ScrollView>
+      {!loaded && <ActivityIndicator size="large" color="#808080" />}
+      {loaded && (
+        <ScrollView>
+          {movieImages && (
+            <View
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <SliderBox
+                images={movieImages}
+                autoplay={true}
+                circleLoop={true}
+                sliderBoxHeight={dimentions.height / 1.5}
+                dotStyle={{height: 0}}
+              />
+            </View>
+          )}
+          {popularMovies && (
+            <View
+              style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+              <List title="Popular Movies" content={popularMovies} />
+            </View>
+          )}
+          {popularTv && (
+            <View
+              style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+              <List title="Popular TV Shows" content={popularTv} />
+            </View>
+          )}
+          {familyMovies && (
+            <View
+              style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+              <List title="Family Movies" content={familyMovies} />
+            </View>
+          )}
+          {documentary && (
+            <View
+              style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+              <List title="Documentary" content={documentary} />
+            </View>
+          )}
+        </ScrollView>
+      )}
     </>
   );
 };
