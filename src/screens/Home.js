@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, Dimensions, FlatList} from 'react-native';
+import {Text, View, Dimensions, FlatList, ScrollView} from 'react-native';
 import {SliderBox} from 'react-native-image-slider-box';
 
 import {getPopularMovies, getUpcomingMovies} from '../services/services';
@@ -45,23 +45,25 @@ const Home = () => {
 
   return (
     <>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <SliderBox
-          images={movieImages}
-          autoplay={true}
-          circleLoop={true}
-          sliderBoxHeight={dimentions.height / 1.5}
-          dotStyle={{height: 0}}
-        />
-      </View>
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <List title="Popular Movies" content={popularMovies} />
-      </View>
+      <ScrollView>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <SliderBox
+            images={movieImages}
+            autoplay={true}
+            circleLoop={true}
+            sliderBoxHeight={dimentions.height / 1.5}
+            dotStyle={{height: 0}}
+          />
+        </View>
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <List title="Popular Movies" content={popularMovies} />
+        </View>
+      </ScrollView>
     </>
   );
 };
