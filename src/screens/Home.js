@@ -83,6 +83,7 @@ const Home = () => {
                 circleLoop={true}
                 sliderBoxHeight={dimentions.height / 1.5}
                 dotStyle={{height: 0}}
+                resizeMode={'stretch'}
               />
             </View>
           )}
