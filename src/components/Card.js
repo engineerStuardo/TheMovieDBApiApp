@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, TouchableOpacity, Image} from 'react-native';
+import PropTypes from 'prop-types';
 
 const placeHolderImage = require('../assets/images/placeholder.png');
 
@@ -34,6 +35,10 @@ const Card = ({item}) => {
       )}
     </TouchableOpacity>
   );
+};
+
+Card.propTypes = {
+  item: PropTypes.object,
 };
 
 export default Card;

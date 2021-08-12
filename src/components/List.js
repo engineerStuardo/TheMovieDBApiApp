@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, View, Dimensions, FlatList} from 'react-native';
+import PropTypes from 'prop-types';
 
 import Card from './Card';
 
@@ -20,6 +21,11 @@ const List = ({title, content}) => {
       </View>
     </View>
   );
+};
+
+List.propTypes = {
+  title: PropTypes.string,
+  content: PropTypes.object,
 };
 
 export default List;
