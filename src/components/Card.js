@@ -1,12 +1,16 @@
 import React from 'react';
 import {Text, TouchableOpacity, Image} from 'react-native';
 import PropTypes from 'prop-types';
+import {useNavigation} from '@react-navigation/native';
 
 const placeHolderImage = require('../assets/images/placeholder.png');
 
 const Card = ({item}) => {
+  const navigation = useNavigation();
+
   return (
     <TouchableOpacity
+      onPress={() => navigation.navigate('Detail')}
       style={{
         padding: 5,
         position: 'relative',
