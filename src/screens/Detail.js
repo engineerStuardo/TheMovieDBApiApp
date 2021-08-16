@@ -106,7 +106,10 @@ const Detail = ({route, navigation}) => {
               )}`}</Text>
             </View>
           </ScrollView>
-          <Modal animationType="slide" visible={modalVisible}>
+          <Modal
+            animationType="slide"
+            visible={modalVisible}
+            supportedOrientations={['portrait', 'landscape']}>
             <View
               style={{
                 flex: 1,
@@ -117,6 +120,7 @@ const Detail = ({route, navigation}) => {
                 onBack={videoShown}
                 navigator={navigation}
                 onEnd={videoShown}
+                fullscreenOrientation="all"
                 source={{uri: 'https://vjs.zencdn.net/v/oceans.mp4'}}
               />
             </View>
