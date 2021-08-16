@@ -10,7 +10,7 @@ const Card = ({item}) => {
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate('Detail')}
+      onPress={() => navigation.navigate('Detail', {movieDetail: item})}
       style={{
         padding: 5,
         position: 'relative',
