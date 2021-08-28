@@ -15,7 +15,7 @@ import {Navbar} from '../components/Navbar';
 
 const dimentions = Dimensions.get('screen');
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [movieImages, setMovieImages] = useState();
   const [popularMovies, setPopularMovies] = useState();
   const [popularTv, setPopularTv] = useState();
@@ -77,7 +77,7 @@ const Home = () => {
       {error && <Error />}
       {loaded && (
         <>
-          <Navbar main={true} />
+          <Navbar navigation={navigation} main={true} />
           <ScrollView>
             {movieImages && (
               <View
