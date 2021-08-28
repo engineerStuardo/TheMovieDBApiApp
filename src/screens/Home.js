@@ -69,7 +69,11 @@ const Home = () => {
 
   return (
     <>
-      {!loaded && <ActivityIndicator size="large" color="#808080" />}
+      {!loaded && (
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+          <ActivityIndicator size="large" color="#808080" />
+        </View>
+      )}
       {error && <Error />}
       {loaded && (
         <>
