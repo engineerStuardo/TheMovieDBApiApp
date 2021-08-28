@@ -7,7 +7,6 @@ import {
   Dimensions,
   ActivityIndicator,
   Modal,
-  Pressable,
 } from 'react-native';
 import StarRating from 'react-native-star-rating';
 import dateformat from 'dateformat';
@@ -15,6 +14,7 @@ import VideoPlayer from 'react-native-video-controls';
 
 import {getMovie} from '../services/services';
 import PlayButton from '../components/PlayButton';
+import {Navbar} from '../components/Navbar';
 
 const placeHolderImage = require('../assets/images/placeholder.png');
 const {height} = Dimensions.get('screen');
@@ -44,6 +44,7 @@ const Detail = ({route, navigation}) => {
       {!loaded && <ActivityIndicator size="large" color="#808080" />}
       {loaded && (
         <View>
+          <Navbar navigation={navigation} />
           <ScrollView>
             <Image
               resizeMode="cover"
@@ -57,7 +58,11 @@ const Detail = ({route, navigation}) => {
               }
             />
             <View
-              style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
               <View style={{position: 'absolute', top: -25, right: 20}}>
                 <PlayButton handlePress={videoShown} />
               </View>
