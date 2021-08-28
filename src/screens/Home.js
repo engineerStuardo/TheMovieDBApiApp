@@ -11,6 +11,7 @@ import {
 } from '../services/services';
 import List from '../components/List';
 import Error from '../components/Error';
+import {Navbar} from '../components/Navbar';
 
 const dimentions = Dimensions.get('screen');
 
@@ -71,49 +72,68 @@ const Home = () => {
       {!loaded && <ActivityIndicator size="large" color="#808080" />}
       {error && <Error />}
       {loaded && (
-        <ScrollView>
-          {movieImages && (
-            <View
-              style={{
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <SliderBox
-                images={movieImages}
-                autoplay={true}
-                circleLoop={true}
-                sliderBoxHeight={dimentions.height / 1.5}
-                dotStyle={{height: 0}}
-                resizeMode={'stretch'}
-              />
-            </View>
-          )}
-          {popularMovies && (
-            <View
-              style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-              <List title="Popular Movies" content={popularMovies} />
-            </View>
-          )}
-          {popularTv && (
-            <View
-              style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-              <List title="Popular TV Shows" content={popularTv} />
-            </View>
-          )}
-          {familyMovies && (
-            <View
-              style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-              <List title="Family Movies" content={familyMovies} />
-            </View>
-          )}
-          {documentary && (
-            <View
-              style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-              <List title="Documentary" content={documentary} />
-            </View>
-          )}
-        </ScrollView>
+        <>
+          <Navbar main={true} />
+          <ScrollView>
+            {movieImages && (
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <SliderBox
+                  images={movieImages}
+                  autoplay={true}
+                  circleLoop={true}
+                  sliderBoxHeight={dimentions.height / 1.5}
+                  dotStyle={{height: 0}}
+                  resizeMode={'stretch'}
+                />
+              </View>
+            )}
+            {popularMovies && (
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <List title="Popular Movies" content={popularMovies} />
+              </View>
+            )}
+            {popularTv && (
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <List title="Popular TV Shows" content={popularTv} />
+              </View>
+            )}
+            {familyMovies && (
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <List title="Family Movies" content={familyMovies} />
+              </View>
+            )}
+            {documentary && (
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <List title="Documentary" content={documentary} />
+              </View>
+            )}
+          </ScrollView>
+        </>
       )}
     </>
   );
