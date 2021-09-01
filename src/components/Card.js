@@ -16,6 +16,7 @@ const Card = ({item}) => {
         position: 'relative',
         alignItems: 'center',
         height: 200,
+        marginBottom: 10,
       }}>
       <Image
         resizeMode="cover"
