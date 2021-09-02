@@ -15,6 +15,7 @@ import VideoPlayer from 'react-native-video-controls';
 import {getMovie} from '../services/services';
 import PlayButton from '../components/PlayButton';
 import {Navbar} from '../components/Navbar';
+import {Colors} from '../theme/Colors';
 
 const placeHolderImage = require('../assets/images/placeholder.png');
 const {height} = Dimensions.get('screen');
@@ -98,7 +99,7 @@ const Detail = ({route, navigation}) => {
                 disabled={true}
                 maxStars={5}
                 rating={detail.vote_average / 2}
-                fullStarColor={'gold'}
+                fullStarColor={Colors.gold}
                 starSize={30}
               />
               <Text style={{padding: 15}}>{detail.overview}</Text>

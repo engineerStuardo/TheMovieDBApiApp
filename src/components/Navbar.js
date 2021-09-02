@@ -2,6 +2,8 @@ import React from 'react';
 import {View, TouchableOpacity, Image, Dimensions} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import {Colors} from '../theme/Colors';
+
 const {width} = Dimensions.get('screen');
 
 export const Navbar = ({navigation, main}) => {
@@ -22,12 +24,12 @@ export const Navbar = ({navigation, main}) => {
             source={require('../assets/images/movies.png')}
           />
           <TouchableOpacity onPress={() => navigation.navigate('Search')}>
-            <Icon name={'search-outline'} size={30} color={'#fff'} />
+            <Icon name={'search-outline'} size={30} color={Colors.white} />
           </TouchableOpacity>
         </View>
       ) : (
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Icon name={'chevron-back'} size={40} color={'#fff'} />
+          <Icon name={'chevron-back'} size={40} color={Colors.white} />
         </TouchableOpacity>
       )}
     </View>

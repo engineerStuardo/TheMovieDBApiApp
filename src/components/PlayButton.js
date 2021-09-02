@@ -2,6 +2,8 @@ import React from 'react';
 import {Pressable} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import {Colors} from '../theme/Colors';
+
 const PlayButton = ({handlePress}) => {
   return (
     <Pressable
@@ -11,9 +13,9 @@ const PlayButton = ({handlePress}) => {
         borderRadius: 50,
         width: 50,
         padding: 10,
-        backgroundColor: '#4481FC',
+        backgroundColor: Colors.primary,
       }}>
-      <Icon name={'caret-forward-outline'} size={30} color={'white'} />
+      <Icon name={'caret-forward-outline'} size={30} color={Colors.white} />
     </Pressable>
   );
 };

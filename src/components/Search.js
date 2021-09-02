@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import {searchMovieTv} from '../services/services';
 import Card from '../components/Card';
+import {Colors} from '../theme/Colors';
 
 export const Search = ({navigation}) => {
   const [text, setText] = useState();
@@ -34,10 +35,11 @@ export const Search = ({navigation}) => {
             onChangeText={text => setText(text)}
             value={text}
             placeholder={'Search movie or TV Show'}
+            onSubmitEditing={() => onsubmit()}
           />
         </View>
         <TouchableOpacity onPress={() => onsubmit()}>
-          <Icon name={'search-outline'} size={30} color={'#000'} />
+          <Icon name={'search-outline'} size={30} color={Colors.primary} />
         </TouchableOpacity>
       </View>
       <View style={{flex: 1, padding: 5}}>
