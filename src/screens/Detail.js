@@ -42,7 +42,7 @@ const Detail = ({route, navigation}) => {
 
   return (
     <>
-      {!loaded && <ActivityIndicator size="large" color="#808080" />}
+      {!loaded && <ActivityIndicator size="large" color={Colors.black} />}
       {loaded && (
         <View>
           <Navbar navigation={navigation} />

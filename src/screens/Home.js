@@ -12,6 +12,7 @@ import {
 import List from '../components/List';
 import Error from '../components/Error';
 import {Navbar} from '../components/Navbar';
+import {Colors} from '../theme/Colors';
 
 const dimentions = Dimensions.get('screen');
 
@@ -71,7 +72,7 @@ const Home = ({navigation}) => {
     <>
       {!loaded && (
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <ActivityIndicator size="large" color="#808080" />
+          <ActivityIndicator size="large" color={Colors.black} />
         </View>
       )}
       {error && <Error />}
