@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {searchMovieTv} from '../services/services';
 import Card from '../components/Card';
 import {Colors} from '../theme/Colors';
+import {Navbar} from '../components/Navbar';
 
 export const Search = ({navigation}) => {
   const [text, setText] = useState();
@@ -22,10 +23,11 @@ export const Search = ({navigation}) => {
 
   return (
     <View style={{flex: 1}}>
+      <Navbar navigation={navigation} search />
       <View
         style={{
           padding: 10,
-          paddingTop: 60,
+          paddingTop: 80,
           flexDirection: 'row',
           alignItems: 'center',
         }}>

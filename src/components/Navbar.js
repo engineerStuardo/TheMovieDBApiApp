@@ -6,7 +6,7 @@ import {Colors} from '../theme/Colors';
 
 const {width} = Dimensions.get('screen');
 
-export const Navbar = ({navigation, main}) => {
+export const Navbar = ({navigation, main, search}) => {
   return (
     <View style={{position: 'absolute', top: 25, left: 10, zIndex: 999999}}>
       {main ? (
@@ -29,7 +29,11 @@ export const Navbar = ({navigation, main}) => {
         </View>
       ) : (
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Icon name={'chevron-back'} size={40} color={Colors.white} />
+          <Icon
+            name={'chevron-back'}
+            size={40}
+            color={search ? Colors.black : Colors.white}
+          />
         </TouchableOpacity>
       )}
     </View>

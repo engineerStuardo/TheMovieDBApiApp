@@ -8,7 +8,13 @@ const List = ({title, content}) => {
   return (
     <View style={{marginTop: 25}}>
       <View>
-        <Text style={{fontSize: 20, fontWeight: 'bold', paddingBottom: 20}}>
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: 'bold',
+            padding: 10,
+            paddingBottom: 15,
+          }}>
           {title}
         </Text>
       </View>
